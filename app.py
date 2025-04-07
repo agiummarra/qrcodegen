@@ -122,51 +122,89 @@ def generate_qrcode(url, style_option, color_options, box_size=10, border=4, emb
 st.title("🚀 Generatore di QR Code")
 st.markdown("### Crea QR code personalizzati per i tuoi URL")
 
-# Form per l'input
-with st.form(key="qrcode_form"):
-    url = st.text_input("Inserisci l'URL 👇", placeholder="https://esempio.com")
-    
-    # Selezione dello stile di QR code
-    style_option = st.selectbox(
-        "Stile del QR Code",
-        options=["Colore Unico", "Orizzontale", "Verticale", "Radiale", "Quadrato"],
-        index=0
-    )
-    
-    # Layout in colonne per i parametri
-    col1, col2 = st.columns(2)
-    
-    # Colonna per la selezione dei colori
-    with col1:
-        st.subheader("Colori")
-        back_color = st.color_picker("Colore sfondo", "#FFFFFF")
-        
-        if style_option == "Colore Unico":
-            color_1 = st.color_picker("Colore QR code", "#1E3A8A")
-            color_2 = color_1  # Non utilizzato ma inizializzato per uniformità
-        else:
-            st.write("Colori gradiente:")
-            color_1 = st.color_picker("Colore primario", "#1E3A8A")
-            color_2 = st.color_picker("Colore secondario", "#4682B4")
-    
-    # Colonna per altre impostazioni
-    with col2:
-        st.subheader("Dimensioni e Logo")
-        box_size = st.slider("Dimensione", min_value=5, max_value=20, value=10)
-        
-        # Opzione per caricare un'immagine da inserire al centro del QR code
-        uploaded_image = st.file_uploader("Carica logo (opzionale)", type=["png", "jpg", "jpeg"])
-        
-        # Mostra un'anteprima dell'immagine caricata
-        if uploaded_image is not None:
-            image = Image.open(uploaded_image)
-            st.image(image, caption="Anteprima logo", width=100)
-    
-    # Pulsante per generare il QR code
-    submit_button = st.form_submit_button(label="Genera QR Code")
+# Inizializzazione dei valori di default nei session state
+if 'url' not in st.session_state:
+    st.session_state.url = ""
+if 'back_color' not in st.session_state:
+    st.session_state.back_color = "#FFFFFF"
+if 'color_1' not in st.session_state:
+    st.session_state.color_1 = "#1E3A8A"
+if 'color_2' not in st.session_state:
+    st.session_state.color_2 = "#4682B4"
+if 'box_size' not in st.session_state:
+    st.session_state.box_size = 10
 
-# Genera QR code quando il form viene inviato
-if submit_button:
+# Input URL
+url = st.text_input("Inserisci l'URL 👇", 
+                    value=st.session_state.url,
+                    placeholder="https://esempio.com",
+                    key="url_input")
+
+# Selezione dello stile del QR code
+style_option = st.selectbox(
+    "Stile del QR Code",
+    options=["Colore Unico", "Orizzontale", "Verticale", "Radiale", "Quadrato"],
+    index=0,
+    key="style_selector"
+)
+
+# Layout in colonne per i parametri
+col1, col2 = st.columns(2)
+
+# Colonna per la selezione dei colori
+with col1:
+    st.subheader("Colori")
+    back_color = st.color_picker("Colore sfondo", 
+                                st.session_state.back_color, 
+                                key="back_color_picker")
+    
+    # Aggiorna il session state
+    st.session_state.back_color = back_color
+    
+    if style_option == "Colore Unico":
+        st.write("Colore QR code:")
+        color_1 = st.color_picker("Colore QR code", 
+                                 st.session_state.color_1, 
+                                 key="color_1_picker")
+        # Non mostrato per il colore unico
+        color_2 = color_1
+    else:
+        st.write("Colori gradiente:")
+        color_1 = st.color_picker("Colore primario", 
+                                 st.session_state.color_1, 
+                                 key="color_1_picker")
+        color_2 = st.color_picker("Colore secondario", 
+                                 st.session_state.color_2, 
+                                 key="color_2_picker")
+    
+    # Aggiorna i session state
+    st.session_state.color_1 = color_1
+    st.session_state.color_2 = color_2
+
+# Colonna per altre impostazioni
+with col2:
+    st.subheader("Dimensioni e Logo")
+    box_size = st.slider("Dimensione", 
+                        min_value=5, 
+                        max_value=20, 
+                        value=st.session_state.box_size,
+                        key="box_size_slider")
+    
+    # Aggiorna il session state
+    st.session_state.box_size = box_size
+    
+    # Opzione per caricare un'immagine da inserire al centro del QR code
+    uploaded_image = st.file_uploader("Carica logo (opzionale)", 
+                                     type=["png", "jpg", "jpeg"],
+                                     key="logo_uploader")
+    
+    # Mostra un'anteprima dell'immagine caricata
+    if uploaded_image is not None:
+        image = Image.open(uploaded_image)
+        st.image(image, caption="Anteprima logo", width=100)
+
+# Pulsante per generare il QR code
+if st.button("Genera QR Code", key="generate_button"):
     if url:
         with st.spinner("Generazione QR Code in corso... ⏳"):
             try:
@@ -228,4 +266,4 @@ st.markdown("""
 """)
 
 st.markdown("---")
-st.markdown("Sviluppato da [Andrea Giummarra](https://github.com/agiummarra) con ❤️ usando Streamlit e qrcode") 
+st.markdown("Developed by [Andrea Giummarra](https://github.com/agiummarra) with ❤️ using Streamlit and qrcode") 
