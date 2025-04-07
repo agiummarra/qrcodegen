@@ -6,14 +6,28 @@
 
 Un'applicazione web costruita con Streamlit che permette di generare QR code personalizzati a partire da un URL.
 
-![Generatore QR Code](https://raw.githubusercontent.com/streamlit/streamlit/master/examples/data/balloons.jpg)
+## Preview dell'applicazione
+
+![Preview del Generatore QR Code](preview.png)
 
 ## Caratteristiche
 
-- Generazione di QR code con stili di colore diversi
-- Personalizzazione della dimensione del QR code
-- Download dell'immagine generata
-- Interfaccia utente intuitiva e accattivante
+- Generazione di QR code con stili di colore diversi (colore unico o gradienti)
+- Personalizzazione completa dei colori con color picker visuale
+- Opzione per inserire un logo personalizzato al centro del QR code
+- Controllo della dimensione del QR code
+- Download immediato dell'immagine generata
+- Interfaccia utente intuitiva e responsive
+
+## Esempi di QR code generabili
+
+L'applicazione permette di creare QR code con diversi stili:
+
+- **Colore Unico:** QR code monocromatico personalizzabile
+- **Orizzontale:** Gradiente orizzontale tra due colori
+- **Verticale:** Gradiente verticale tra due colori
+- **Radiale:** Gradiente che si diffonde dal centro verso l'esterno
+- **Quadrato:** Gradiente quadrato con colore centrale e colore esterno
 
 ## Requisiti
 
