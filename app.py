@@ -192,7 +192,7 @@ if submit_button:
                 with col1:
                     st.write("")
                 with col2:
-                    st.image(qrcode_path, caption=f"QR Code per: {url}", use_container_width=True)
+                    st.image(qrcode_path, caption=f"QR Code per: {url}")
                 with col3:
                     st.write("")
                 
