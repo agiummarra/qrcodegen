@@ -102,7 +102,7 @@ I contributi sono sempre benvenuti! Per contribuire:
 
 - Andrea Giummarra - [@agiummarra](https://github.com/agiummarra)
 
-Link Progetto: [https://github.com/agiummarra/agqrcodegen](https://github.com/agiummarra/agqrcodegen)
+Link Progetto: [https://github.com/agiummarra/agqrcodegen](https://github.com/agiummarra/qrcodegen)
 
 ## 📄 Licenza
 
