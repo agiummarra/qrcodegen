@@ -250,4 +250,4 @@ st.markdown("""
 """)
 
 st.markdown("---")
-st.markdown("Sviluppato da [Andrea Giummarra](https://github.com/agiummarra) con ❤️ usando Streamlit e qrcode") 
+st.markdown("Developed by [Andrea Giummarra](https://github.com/agiummarra) with ❤️ using Streamlit and qrcode") 
