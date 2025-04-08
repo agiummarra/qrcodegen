@@ -20,7 +20,21 @@ st.set_page_config(
     page_icon="🚀",
     layout="centered",
     initial_sidebar_state="collapsed",
+    menu_items={
+        'Get Help': 'https://github.com/agiummarra/qrcodegen',
+        'Report a bug': 'https://github.com/agiummarra/qrcodegen/issues',
+        'About': 'Generatore di QR Code personalizzati sviluppato da Andrea Giummarra'
+    }
 )
+
+# Imposta il tema chiaro come predefinito
+st.markdown("""
+<script>
+    var elements = window.parent.document.querySelectorAll('.stApp')
+    elements[0].classList.add('light')
+    elements[0].classList.remove('dark')
+</script>
+""", unsafe_allow_html=True)
 
 # Stile CSS personalizzato
 st.markdown("""
