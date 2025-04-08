@@ -1,14 +1,3 @@
 [theme]
-# Colori per entrambi i temi
-primaryColor="#1E3A8A"
-font="sans serif"
-
 # Tema predefinito
-base="light"
-
-# Colori specifici per il tema chiaro
-backgroundColor="#FFFFFF"
-secondaryBackgroundColor="#F8F9FA"
-textColor="#262730"
-
-# I colori specifici per il tema scuro saranno gestiti dal CSS nell'app 
+base="light" 

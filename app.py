@@ -27,61 +27,12 @@ st.set_page_config(
     }
 )
 
-# Stile CSS personalizzato
+# Stile CSS essenziale (solo per layout, senza influenzare i temi)
 st.markdown("""
 <style>
-    .main {
-        padding: 2rem;
-        border-radius: 10px;
-        background-color: #f8f9fa;
-    }
-    .stTitle {
-        color: #1e3a8a;
-        font-weight: 700;
-    }
-    .stButton>button {
-        background-color: #1e3a8a;
-        color: white;
-        border-radius: 5px;
-        padding: 0.5rem 1rem;
-        font-weight: 600;
-    }
     .download-button {
         text-align: center;
         margin: 1rem 0;
-    }
-    .color-picker-container {
-        display: flex;
-        gap: 10px;
-        margin-top: 5px;
-    }
-    
-    /* Stili specifici per il tema scuro */
-    [data-theme="dark"] .stTextInput input, 
-    [data-theme="dark"] .stSelectbox > div > div {
-        background-color: #2e2e2e !important;
-        color: white !important;
-        border-color: #555 !important;
-    }
-    
-    [data-theme="dark"] .stTextInput label, 
-    [data-theme="dark"] .stSelectbox label,
-    [data-theme="dark"] .stSlider label {
-        color: #fff !important;
-    }
-    
-    [data-theme="dark"] .stMarkdown p {
-        color: #fff !important;
-    }
-    
-    [data-theme="dark"] .main {
-        background-color: #1e1e1e;
-    }
-    
-    /* Assicuriamoci che i bottoni siano visibili in entrambi i temi */
-    [data-theme="dark"] .stButton>button {
-        background-color: #4a63b8;
-        color: white;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -299,4 +250,4 @@ st.markdown("""
 """)
 
 st.markdown("---")
-st.markdown("Developed by [Andrea Giummarra](https://github.com/agiummarra) with ❤️ using Streamlit and qrcode") 
+st.markdown("Sviluppato da [Andrea Giummarra](https://github.com/agiummarra) con ❤️ usando Streamlit e qrcode") 
