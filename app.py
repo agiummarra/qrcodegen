@@ -27,15 +27,6 @@ st.set_page_config(
     }
 )
 
-# Imposta il tema chiaro come predefinito
-st.markdown("""
-<script>
-    var elements = window.parent.document.querySelectorAll('.stApp')
-    elements[0].classList.add('light')
-    elements[0].classList.remove('dark')
-</script>
-""", unsafe_allow_html=True)
-
 # Stile CSS personalizzato
 st.markdown("""
 <style>
@@ -63,6 +54,34 @@ st.markdown("""
         display: flex;
         gap: 10px;
         margin-top: 5px;
+    }
+    
+    /* Stili specifici per il tema scuro */
+    [data-theme="dark"] .stTextInput input, 
+    [data-theme="dark"] .stSelectbox > div > div {
+        background-color: #2e2e2e !important;
+        color: white !important;
+        border-color: #555 !important;
+    }
+    
+    [data-theme="dark"] .stTextInput label, 
+    [data-theme="dark"] .stSelectbox label,
+    [data-theme="dark"] .stSlider label {
+        color: #fff !important;
+    }
+    
+    [data-theme="dark"] .stMarkdown p {
+        color: #fff !important;
+    }
+    
+    [data-theme="dark"] .main {
+        background-color: #1e1e1e;
+    }
+    
+    /* Assicuriamoci che i bottoni siano visibili in entrambi i temi */
+    [data-theme="dark"] .stButton>button {
+        background-color: #4a63b8;
+        color: white;
     }
 </style>
 """, unsafe_allow_html=True)
